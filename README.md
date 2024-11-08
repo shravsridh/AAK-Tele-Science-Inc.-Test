@@ -1,1 +1,68 @@
 # AAK-Tele-Science-Inc.-Test
+
+For this task, I assumed that the cluster nodes A, B, and C are already created.
+
+### Overview of the YAML files:
+
+1. Node labelling: These files are to label the cluster nodes so that the correct Nginx deployment pod can be scheduled on the corresponding node, using the label.
+   a. node-A-labelling.yaml: File to label node A
+   b. node-B-labelling.yaml: File to label node B
+   c. node-C-labelling.yaml: File to label node C
+
+2. Configuration for Nginx deployments for the pods: These files are to specify configurations for the Nginx deployments for the 3 pods, F, T, and J.
+   a. deployment-pod-nginx-F.yaml: File to specify configuration for Nginx deployment for pod F
+   b. deployment-pod-nginx-T.yaml: File to specify configuration for Nginx deployment for pod T
+   c. deployment-pod-nginx-J.yaml: File to specify configuration for Nginx deployment for pod J
+
+### If we execute the following commands in the appropriate runtime environment, the scheduling operations required as per the task should be performed:
+
+1. Check that the 3 cluster nodes A, B, and C exist.
+   
+   ```
+   kubectl get nodes
+   ```
+
+2. Apply the node labels (and taint for node C) by applying the corresponding YAML files.
+
+   ```
+   kubectl apply -f node-A-labelling.yaml
+   kubectl apply -f node-B-labelling.yaml
+   kubectl apply -f node-C-labelling.yaml
+   ```
+
+3. Check that the labels were correctly applied.
+
+   ```
+   kubectl get nodes --show-labels
+   ```
+
+               OR
+
+    ```
+    kubectl describe node nodeA
+    kubectl describe node nodeB
+    kubectl describe node nodeC
+    ```
+
+4. Check that the taint (for node C) was correctly applied.
+
+   ```
+   kubectl describe nodes | grep Taint
+   ```
+
+5. Apply the 3 Nginx deployments by applying the corresponding YAML files.
+
+   ```
+   kubectl apply -f deployment-pod-nginx-F.yaml
+   kubectl apply -f deployment-pod-nginx-T.yaml
+   kubectl apply -f deployment-pod-nginx-J.yaml
+   ```
+
+6. Check that the Nginx deployment pods are scheduled on the correct cluster nodes as per the task requirements.
+
+   ```
+   kubectl get pods -o wide
+   kubectl get pods -l app=nginx_F -o wide
+   kubectl get pods -l app=nginx_T -o wide
+   kubectl get pods -l app=nginx_J -o wide
+   ```
