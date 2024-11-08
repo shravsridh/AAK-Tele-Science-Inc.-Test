@@ -20,7 +20,7 @@ spec:
         podType: F #This will ensure that the node labelled with 'F' podType can schedule Nginx deployment pod F
       containers:
       - name: nginx
-        image: nginx:1
+        image: nginx:1.0
         ports:
         - containerPort: 80
     
