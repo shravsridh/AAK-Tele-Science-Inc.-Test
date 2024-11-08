@@ -1,0 +1,13 @@
+﻿#YAML file to label node C (assuming node C is already created).
+
+apiVersion: v1
+kind: Node
+metadata:
+  name: node_C
+  labels:
+    podType: T #label of the node
+spec:
+  taints: #This taints node C (in order to prevent Nginx deployment pod J from scheduling on this node)
+  - key: restricted
+    value: "true"
+    effect: NoSchedule

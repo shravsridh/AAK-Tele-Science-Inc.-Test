@@ -1,0 +1,31 @@
+#YAML file to specify configuration for Nginx deployment for pod T
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment_nginx_T
+  labels:
+    app: nginx_T
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx_T
+  template:
+    metadata:
+      labels:
+        app: nginx_T
+    spec:
+      nodeSelector:
+        podType: T #This will ensure that nodes labelled with 'T' podType can schedule Nginx deployment pod T
+      tolerations: #Defining toleration to allow Nginx deployment pod T to schedule on node C, which is tainted
+      - key: "restricted"
+        operator: "Equal"
+        value: "true"
+        effect: "NoSchedule"
+      containers:
+      - name: nginx
+        image: nginx:1
+        ports:
+        - containerPort: 80
+    

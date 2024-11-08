@@ -1,0 +1,26 @@
+#YAML file to specify configuration for Nginx deployment for pod F
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment_nginx_F
+  labels:
+    app: nginx_F
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx_F
+  template:
+    metadata:
+      labels:
+        app: nginx_F
+    spec:
+      nodeSelector:
+        podType: F #This will ensure that the node labelled with 'F' podType can schedule Nginx deployment pod F
+      containers:
+      - name: nginx
+        image: nginx:1
+        ports:
+        - containerPort: 80
+    

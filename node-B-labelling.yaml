@@ -1,0 +1,8 @@
+#YAML file to label node B (assuming node B is already created).
+
+apiVersion: v1
+kind: Node
+metadata:
+  name: node_B
+  labels:
+    podType: T #label of the node
