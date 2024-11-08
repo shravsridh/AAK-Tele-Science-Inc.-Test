@@ -36,21 +36,21 @@ For this task, I assumed that the cluster nodes A, B, and C are already created.
    kubectl get nodes --show-labels
    ```
 
-               OR
+   OR
 
-    ```
-    kubectl describe node nodeA
-    kubectl describe node nodeB
-    kubectl describe node nodeC
-    ```
+   ```
+   kubectl describe node nodeA
+   kubectl describe node nodeB
+   kubectl describe node nodeC
+   ```
 
-4. Check that the taint (for node C) was correctly applied.
+5. Check that the taint (for node C) was correctly applied.
 
    ```
    kubectl describe nodes | grep Taint
    ```
 
-5. Apply the 3 Nginx deployments by applying the corresponding YAML files.
+6. Apply the 3 Nginx deployments by applying the corresponding YAML files.
 
    ```
    kubectl apply -f deployment-pod-nginx-F.yaml
@@ -58,7 +58,7 @@ For this task, I assumed that the cluster nodes A, B, and C are already created.
    kubectl apply -f deployment-pod-nginx-J.yaml
    ```
 
-6. Check that the Nginx deployment pods are scheduled on the correct cluster nodes as per the task requirements.
+7. Check that the Nginx deployment pods are scheduled on the correct cluster nodes as per the task requirements.
 
    ```
    kubectl get pods -o wide
