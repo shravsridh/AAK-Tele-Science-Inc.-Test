@@ -4,12 +4,12 @@ For this task, I assumed that the cluster nodes A, B, and C are already created.
 
 ### Overview of the YAML files:
 
-1. Node labelling: These files are to label the cluster nodes so that the correct Nginx deployment pod can be scheduled on the corresponding node, using the label.<br/>
+1. Node labelling: These files are to label the cluster nodes so that the correct Nginx deployment pod can be scheduled on the corresponding node, using the label.<br/><br/>
    a. node-A-labelling.yaml: File to label node A<br/>
    b. node-B-labelling.yaml: File to label node B<br/>
    c. node-C-labelling.yaml: File to label node C<br/>
 
-2. Configuration for Nginx deployments for the pods: These files are to specify configurations for the Nginx deployments for the 3 pods, F, T, and J.<br/>
+2. Configuration for Nginx deployments for the pods: These files are to specify configurations for the Nginx deployments for the 3 pods, F, T, and J.<br/><br/>
    a. deployment-pod-nginx-F.yaml: File to specify configuration for Nginx deployment for pod F<br/>
    b. deployment-pod-nginx-T.yaml: File to specify configuration for Nginx deployment for pod T<br/>
    c. deployment-pod-nginx-J.yaml: File to specify configuration for Nginx deployment for pod J<br/>
