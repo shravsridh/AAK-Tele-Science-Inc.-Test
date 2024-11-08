@@ -14,7 +14,7 @@ For this task, I assumed that the cluster nodes A, B, and C are already created.
    b. _deployment-pod-nginx-T.yaml:_ File to specify configuration for Nginx deployment for pod T<br/>
    c. _deployment-pod-nginx-J.yaml:_ File to specify configuration for Nginx deployment for pod J<br/>
 
-### If we execute the following commands in the appropriate runtime environment, the scheduling operations required as per the task should be performed:
+### If we execute the following commands in the appropriate runtime environment, the scheduling operations required as per the task rules should be performed:
 
 1. Check that the 3 cluster nodes A, B, and C exist.
    
